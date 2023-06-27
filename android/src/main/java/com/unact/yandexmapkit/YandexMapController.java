@@ -405,26 +405,26 @@ public class YandexMapController implements
 
   @SuppressWarnings({"unchecked", "ConstantConditions"})
   public CameraPosition newBounds(Map<String, Object> params) {
-    if ((Map<String, Object>) params.get("focusRect") != null) {
-      return mapView.getMap().cameraPosition(
-        Utils.boundingBoxFromJson((Map<String, Object>) params.get("boundingBox")),
-        Utils.screenRectFromJson((Map<String, Object>) params.get("focusRect"))
-      );
-    }
+    ScreenRect focus = params.get("focusRect") != null ?
+            Utils.screenRectFromJson((Map<String, Object>) params.get("focusRect")) :
+            null;
 
     return mapView.getMap().cameraPosition(
-      Utils.boundingBoxFromJson((Map<String, Object>) params.get("boundingBox"))
+            Geometry.fromBoundingBox(Utils.boundingBoxFromJson((Map<String, Object>) params.get("boundingBox"))),
+            null,
+            null,
+            focus
     );
   }
 
   @SuppressWarnings({"unchecked", "ConstantConditions"})
   public CameraPosition newTiltAzimuthBounds(Map<String, Object> params) {
-    ScreenRect focus = (Map<String, Object>) params.get("focusRect") != null ?
+    ScreenRect focus = params.get("focusRect") != null ?
       Utils.screenRectFromJson((Map<String, Object>) params.get("focusRect")) :
       null;
 
     return mapView.getMap().cameraPosition(
-      Utils.boundingBoxFromJson((Map<String, Object>) params.get("boundingBox")),
+      Geometry.fromBoundingBox(Utils.boundingBoxFromJson((Map<String, Object>) params.get("boundingBox"))),
       ((Double) params.get("azimuth")).floatValue(),
       ((Double) params.get("tilt")).floatValue(),
       focus
@@ -522,12 +522,7 @@ public class YandexMapController implements
     mapView.getMap().move(
       cameraPosition,
       animation,
-      new com.yandex.mapkit.map.Map.CameraCallback() {
-        @Override
-        public void onMoveFinished(boolean completed) {
-          result.success(completed);
-        }
-      }
+      result::success
     );
   }
 

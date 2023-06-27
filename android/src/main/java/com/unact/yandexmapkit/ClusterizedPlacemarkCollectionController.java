@@ -180,7 +180,7 @@ public class ClusterizedPlacemarkCollectionController
       }
 
       @Override
-      public void error(String errorCode, @Nullable String errorMessage, @Nullable Object errorDetails) {}
+      public void error(@NonNull String errorCode, @Nullable String errorMessage, @Nullable Object errorDetails) {}
       @Override
       public void notImplemented() {}
     });

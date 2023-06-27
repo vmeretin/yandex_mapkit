@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.source_files = 'Classes/**/*'
   s.static_framework = true
   s.dependency 'Flutter'
-  s.dependency 'YandexMapsMobile', '4.2.2-full'
+  s.dependency 'YandexMapsMobile', '4.3.2-full'
   s.platform = :ios, '12.0'
 
   # Flutter.framework does not contain a i386 slice.

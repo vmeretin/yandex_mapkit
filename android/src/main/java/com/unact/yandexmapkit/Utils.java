@@ -48,7 +48,7 @@ public class Utils {
 
   @SuppressWarnings({"ConstantConditions"})
   public static PointF rectPointFromJson(Map<String, Double> json) {
-    return new PointF(((Double) json.get("dx")).floatValue(), ((Double) json.get("dy")).floatValue());
+    return new PointF(json.get("dx").floatValue(), json.get("dy").floatValue());
   }
 
   @SuppressWarnings({"unchecked", "ConstantConditions"})

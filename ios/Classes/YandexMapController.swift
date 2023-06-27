@@ -304,15 +304,16 @@ public class YandexMapController:
   }
 
   private func newBounds(_ params: [String: Any]) -> YMKCameraPosition {
-    if (params["focusRect"] as? [String: Any] != nil) {
-      return mapView.mapWindow.map.cameraPosition(
-        with: Utils.boundingBoxFromJson(params["boundingBox"] as! [String: Any]),
-        focus: Utils.screenRectFromJson(params["focusRect"] as! [String: Any])
-      )
-    }
-
+    let focus = params["focusRect"] as? [String: Any] != nil ?
+      Utils.screenRectFromJson(params["focusRect"] as! [String: Any]) :
+      nil
+      
+      
     return mapView.mapWindow.map.cameraPosition(
-      with: Utils.boundingBoxFromJson(params["boundingBox"] as! [String: Any])
+      with: YMKGeometry(boundingBox: Utils.boundingBoxFromJson(params["boundingBox"] as! [String: Any])),
+      azimuth: nil,
+      tilt: nil,
+      focus: focus
     )
   }
 
@@ -322,9 +323,9 @@ public class YandexMapController:
       nil
 
     return mapView.mapWindow.map.cameraPosition(
-      with: Utils.boundingBoxFromJson(params["boundingBox"] as! [String: Any]),
-      azimuth: (params["azimuth"] as! NSNumber).floatValue,
-      tilt: (params["tilt"] as! NSNumber).floatValue,
+      with: YMKGeometry(boundingBox: Utils.boundingBoxFromJson(params["boundingBox"] as! [String: Any])),
+      azimuth: params["azimuth"] as? NSNumber,
+      tilt: params["tilt"] as? NSNumber,
       focus: focus
     )
   }
