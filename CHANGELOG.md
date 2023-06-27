@@ -1,3 +1,10 @@
+## 3.3.0
+
+* Update and lock YandexMapkit version to 4.3.2 for iOS and Android
+* Update project to be inline with current flutter defaults
+* Replace full SDK to lite SDK
+* Fix YandexMapController memory leak
+
 ## 3.2.0
 
 * Update and lock YandexMapkit version to 4.2.2-full for iOS and Android
