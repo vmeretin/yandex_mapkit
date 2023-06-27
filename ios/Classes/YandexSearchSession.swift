@@ -1,3 +1,4 @@
+import Flutter
 import Foundation
 import YandexMapsMobile
 
@@ -130,7 +131,7 @@ public class YandexSearchSession: NSObject {
       "address": [
         "formattedAddress": meta!.address.formattedAddress,
         "addressComponents": getAddressComponents(address: meta!.address)
-      ]
+      ] as [String:Any]
     ]
   }
 
@@ -147,7 +148,7 @@ public class YandexSearchSession: NSObject {
       "address": [
         "formattedAddress": meta!.address.formattedAddress,
         "addressComponents": getAddressComponents(address: meta!.address)
-      ]
+      ] as [String:Any]
     ]
   }
 

@@ -542,7 +542,7 @@ public class YandexMapController:
       "trafficLevel": trafficLevel == nil ? nil : [
         "level": trafficLevel!.level,
         "color": trafficLevel!.color.rawValue
-      ]
+      ] as [String:Any]
     ]
 
     methodChannel.invokeMethod("onTrafficChanged", arguments: arguments)
@@ -595,7 +595,7 @@ public class YandexMapController:
           "layerId": meta!.layerId
         ],
         "aref": geoObj.aref
-      ]
+      ] as [String:Any?]
     ]
 
     methodChannel.invokeMethod("onObjectTap", arguments: arguments)

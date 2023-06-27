@@ -24,4 +24,4 @@ flutter:
         package: com.unact.yandexmapkit
         pluginClass: YandexMapkitPlugin
       ios:
-        pluginClass: YandexMapkitPlugin
+        pluginClass: SwiftYandexMapkitPlugin
