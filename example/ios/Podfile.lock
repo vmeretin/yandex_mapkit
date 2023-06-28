@@ -4,8 +4,8 @@ PODS:
     - Flutter
   - yandex_mapkit (0.0.1):
     - Flutter
-    - YandexMapsMobile (= 4.3.2-full)
-  - YandexMapsMobile (4.3.2-full)
+    - YandexMapsMobile (= 4.3.2-lite)
+  - YandexMapsMobile (4.3.2-lite)
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
@@ -27,8 +27,8 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
   permission_handler: ccb20a9fad0ee9b1314a52b70b76b473c5f8dab0
-  yandex_mapkit: 27dac5e28ac559d0c4977c8bc476a048cee22996
-  YandexMapsMobile: c73c71ec041b215284efbe8a0ebd7cdb77aad8d7
+  yandex_mapkit: d3952ba1905d6987a43ab36221df5a21a7e25f89
+  YandexMapsMobile: e51e97fb489b19f9e493b7689a13cd1e04180f1a
 
 PODFILE CHECKSUM: 4e8f8b2be68aeea4c0d5beb6ff1e79fface1d048
 
