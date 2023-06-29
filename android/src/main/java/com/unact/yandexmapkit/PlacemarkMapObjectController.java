@@ -34,6 +34,7 @@ public class PlacemarkMapObjectController
   private boolean consumeTapEvents = false;
   private final WeakReference<YandexMapController> controller;
   public final String id;
+  private ImageProvider defaultImage;
 
   @SuppressWarnings({"unchecked", "ConstantConditions"})
   public PlacemarkMapObjectController(
@@ -56,6 +57,7 @@ public class PlacemarkMapObjectController
     this.id = (String) params.get("id");
     this.controller = controller;
     this.internallyControlled = false;
+    this.defaultImage = ImageProvider.fromBitmap(Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888));
 
     placemark.setUserData(id);
     placemark.addTapListener(this);
@@ -135,7 +137,6 @@ public class PlacemarkMapObjectController
   @SuppressWarnings({"ConstantConditions"})
   private ImageProvider getIconImage(Map<String, Object> image) {
     String type = (String) image.get("type");
-    ImageProvider defaultImage = ImageProvider.fromBitmap(Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888));
 
     if (type.equals("fromAssetImage")) {
       String assetName = FlutterInjector.instance().flutterLoader().getLookupKeyForAsset((String) image.get("assetName"));
